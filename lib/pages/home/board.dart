@@ -9,6 +9,13 @@ class Board extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String asset;
+    if (controller.tictactoe.value.board[index] == 'X') {
+      asset = 'assets/images/ex_inv.png';
+    } else if (controller.tictactoe.value.board[index] == 'O') {
+      asset = 'assets/images/oh_inv.png';
+    }
+
     return GestureDetector(
       onTap: () {
         controller.insert(index, 'X');
@@ -20,16 +27,13 @@ class Board extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Text(
-            controller.tictactoe.value.board[index],
-            style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: controller.tictactoe.value.board[index] == 'X'
-                  ? Colors.greenAccent
-                  : Colors.redAccent,
-            ),
-          ),
+          child: controller.tictactoe.value.board[index].isNotEmpty
+              ? Image.asset(
+                  asset,
+                  height: 60,
+                  width: 60,
+                )
+              : Container(),
         ),
       ),
     );
