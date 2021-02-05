@@ -1,14 +1,19 @@
 import 'dart:math';
 
-class TicTacToe {
+import 'package:tic_tac_toe/model/minimax_ai.dart';
 
+class TicTacToe {
   List<String> board = ['', '', '', '', '', '', '', '', ''];
 
   List<int> availablePositions = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
   String winner = 'NONE';
 
+  int checkCount = 0;
+
   var random = new Random();
+
+  MiniMaxAi ai = MiniMaxAi();
 
   randomMove() {
     if (availablePositions.length > 1 && winner == 'NONE') {
@@ -16,6 +21,10 @@ class TicTacToe {
       board[index] = 'O';
       availablePositions.remove(index);
     }
+  }
+
+  aiMove() {
+    ai.move(board, availablePositions);
   }
 
   clearBoard() {
@@ -79,8 +88,14 @@ class TicTacToe {
         board[2] == board[6] &&
         board[2].isNotEmpty) {
       winner = board[2];
-    } else if (availablePositions.length < 1) {
-      winner = 'DRAW';
     }
+
+    int spot = 0;
+    for (int i = 0; i < 9; i++) {
+      if (board[i].isEmpty) spot++;
+    }
+
+    if (spot == 0 && winner == 'NONE') winner = 'DRAW';
   }
+
 }

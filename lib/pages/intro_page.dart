@@ -40,7 +40,7 @@ class IntroPage extends StatelessWidget {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  Color(0xFF0FFFF).withOpacity(0.2),
+                  Color(0xFF0FFFF).withOpacity(0.15),
                   Color(0xFF0FFFF).withOpacity(0),
                 ],
               ),
@@ -49,6 +49,7 @@ class IntroPage extends StatelessWidget {
                 end: Alignment.bottomRight,
                 colors: [
                   Color(0xFF0FFFF).withOpacity(1),
+                  Color(0xFF0FFFF).withOpacity(0),
                   Color(0xFF0FFFF).withOpacity(1),
                 ],
               ),

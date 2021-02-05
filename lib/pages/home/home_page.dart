@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_button/3d/3d_button.dart';
 import 'package:get/get.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:tic_tac_toe/constants/k_text.dart';
 import 'package:tic_tac_toe/controllers/tictactoe_controller.dart';
@@ -9,6 +8,7 @@ import 'package:tic_tac_toe/pages/home/board.dart';
 import 'package:tic_tac_toe/styles/k_textstyles.dart';
 import 'package:tic_tac_toe/utils/launch_url.dart';
 import 'package:tic_tac_toe/widgets/dot_back.dart';
+import 'dart:io' show Platform;
 
 class HomePage extends StatelessWidget {
   const HomePage({Key key}) : super(key: key);
@@ -16,6 +16,14 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    bool isMobile = false;
+    try {
+      if (Platform.isAndroid || Platform.isIOS) {
+        isMobile = true;
+      }
+    } catch (e) {
+      print(e);
+    }
 
     return Scaffold(
       body: Stack(
@@ -26,17 +34,17 @@ class HomePage extends StatelessWidget {
           ),
           Positioned(
             top: 100,
-            left: size.width / 2 - 300,
+            left: isMobile ? size.width / 2 - 150 : size.width / 2 - 300,
             child: Text(
               impossible_tictactoe,
               style: headerStyle,
             ),
           ),
           Positioned(
-            top: size.height / 2 - 300,
-            left: size.width / 2 - 300,
-            height: 600,
-            width: 600,
+            top: size.height / 2 - (isMobile ? 150 : 300),
+            left: size.width / 2 - (isMobile ? 150 : 300),
+            height: isMobile ? 300 : 600,
+            width: isMobile ? 300 : 600,
             child: GetX<TicTacToeController>(
                 init: TicTacToeController(),
                 builder: (controller) {
@@ -46,6 +54,8 @@ class HomePage extends StatelessWidget {
                       winText = 'You Won!';
                     } else if (controller.tictactoe.value.winner == 'O') {
                       winText = 'You Lost!';
+                    } else if (controller.tictactoe.value.winner == 'DRAW') {
+                      winText = 'It\'s a Draw!';
                     } else {
                       winText = controller.tictactoe.value.winner;
                     }
@@ -55,6 +65,11 @@ class HomePage extends StatelessWidget {
                             Center(
                               child: Material(
                                 child: Container(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.white,
+                                    ),
+                                  ),
                                   height: 200,
                                   width: 300,
                                   child: Padding(
@@ -71,9 +86,9 @@ class HomePage extends StatelessWidget {
                                           style: GoogleFonts.vt323(
                                             fontSize: 34,
                                             fontWeight: FontWeight.bold,
-                                            color: winText == 'You Won!'
-                                                ? Colors.greenAccent
-                                                : Colors.redAccent,
+                                            color: winText == 'You Lost!'
+                                                ? Colors.redAccent
+                                                : Colors.greenAccent,
                                           ),
                                         ),
                                         Button3D(
@@ -98,6 +113,8 @@ class HomePage extends StatelessWidget {
 
                   return GridView.builder(
                     shrinkWrap: true,
+                    padding: EdgeInsets.all(0),
+                    physics: NeverScrollableScrollPhysics(),
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                     ),
@@ -113,7 +130,7 @@ class HomePage extends StatelessWidget {
           ),
           Positioned(
             bottom: 100,
-            right: size.width / 2 - 300,
+            right: isMobile ? size.width / 2 - 150 : size.width / 2 - 300,
             child: TextButton(
               onPressed: () {
                 launchURL('https://github.com/ikramhasan');

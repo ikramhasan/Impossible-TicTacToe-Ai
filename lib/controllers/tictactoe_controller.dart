@@ -12,12 +12,10 @@ class TicTacToeController extends GetxController {
         val.board[index] = move;
         val.availablePositions.remove(index);
         val.checkWinner();
-        val.randomMove();
+        val.aiMove();
         val.checkWinner();
-        print('inserted $move at $index');
       });
     }
-    print(tictactoe.value.winner);
   }
 
   clearBoard() {
