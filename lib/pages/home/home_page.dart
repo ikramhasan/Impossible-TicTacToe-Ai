@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tic_tac_toe/constants/k_text.dart';
 import 'package:tic_tac_toe/controllers/tictactoe_controller.dart';
 import 'package:tic_tac_toe/pages/home/board.dart';
+import 'package:tic_tac_toe/pages/home/win_dialog.dart';
 import 'package:tic_tac_toe/styles/k_textstyles.dart';
 import 'package:tic_tac_toe/utils/launch_url.dart';
 import 'package:tic_tac_toe/widgets/dot_back.dart';
@@ -61,54 +62,7 @@ class HomePage extends StatelessWidget {
                     }
                     controller.tictactoe.value.winner == 'NONE'
                         ? Container()
-                        : Get.dialog(
-                            Center(
-                              child: Material(
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                    border: Border.all(
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                  height: 200,
-                                  width: 300,
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                        horizontal: 16, vertical: 34),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.center,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Text(
-                                          winText,
-                                          style: GoogleFonts.vt323(
-                                            fontSize: 34,
-                                            fontWeight: FontWeight.bold,
-                                            color: winText == 'You Lost!'
-                                                ? Colors.redAccent
-                                                : Colors.greenAccent,
-                                          ),
-                                        ),
-                                        Button3D(
-                                          onPressed: () {
-                                            controller.clearBoard();
-                                            Navigator.pop(context);
-                                          },
-                                          width: 200,
-                                          child: Text(
-                                            'Play Again!',
-                                            style: playButtonStyle,
-                                          ),
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
+                        : showWinDialog(winText, controller, context);
                   });
 
                   return GridView.builder(
