@@ -9,11 +9,12 @@ class TicTacToe {
 
   String winner = 'NONE';
 
-  int checkCount = 0;
-
   var random = new Random();
 
   MiniMaxAi ai = MiniMaxAi();
+
+  int checkCount = 0;
+  List<int> steps = [0];
 
   randomMove() {
     if (availablePositions.length > 1 && winner == 'NONE') {
@@ -24,7 +25,8 @@ class TicTacToe {
   }
 
   aiMove() {
-    ai.move(board, availablePositions);
+    checkCount = ai.move(board, availablePositions);
+    steps.add(checkCount);
   }
 
   clearBoard() {
@@ -32,6 +34,7 @@ class TicTacToe {
       element = '';
     });
     winner = 'NONE';
+    steps = [0];
     print('Board Cleared');
   }
 
@@ -97,5 +100,4 @@ class TicTacToe {
 
     if (spot == 0 && winner == 'NONE') winner = 'DRAW';
   }
-
 }

@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:tic_tac_toe/constants/k_text.dart';
 import 'package:tic_tac_toe/controllers/tictactoe_controller.dart';
 import 'package:tic_tac_toe/pages/home/board.dart';
+import 'package:tic_tac_toe/pages/home/console.dart';
 import 'package:tic_tac_toe/pages/home/win_dialog.dart';
 import 'package:tic_tac_toe/styles/k_textstyles.dart';
 import 'package:tic_tac_toe/utils/launch_url.dart';
@@ -83,7 +84,14 @@ class HomePage extends StatelessWidget {
                 }),
           ),
           Positioned(
-            bottom: 100,
+            top: size.height / 2 + (isMobile ? 180 : 320),
+            right: isMobile ? size.width / 2 - 150 : size.width / 2 - 300,
+            height: isMobile ? 80 : 60,
+            width: isMobile ? 300 : 600,
+            child: Console(),
+          ),
+          Positioned(
+            top: size.height / 2 + (isMobile ? 300 : 400),
             right: isMobile ? size.width / 2 - 150 : size.width / 2 - 300,
             child: TextButton(
               onPressed: () {

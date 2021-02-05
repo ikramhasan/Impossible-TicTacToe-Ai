@@ -49,5 +49,6 @@ showWinDialog(winText, controller, context) {
         ),
       ),
     ),
+    barrierDismissible: false,
   );
 }

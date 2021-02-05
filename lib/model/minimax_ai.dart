@@ -4,7 +4,7 @@ class MiniMaxAi {
   move(board, availablePositions) {
     int bestScore = -999999999;
     var bestMove;
-
+    checkCount = 0;
     for (int i = 0; i < board.length; i++) {
       if (board[i].isEmpty) {
         board[i] = 'O';
@@ -17,8 +17,8 @@ class MiniMaxAi {
       }
     }
     print(checkCount);
-    checkCount = 0;
     if (availablePositions.length > 4) board[bestMove] = 'O';
+    return checkCount;
   }
 
   var scores = {
