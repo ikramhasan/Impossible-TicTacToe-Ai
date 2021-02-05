@@ -21,11 +21,11 @@ class Board extends StatelessWidget {
         ),
         child: Center(
           child: Text(
-            controller.board[index],
+            controller.tictactoe.value.board[index],
             style: TextStyle(
               fontSize: 50,
               fontWeight: FontWeight.bold,
-              color: controller.board[index] == 'X'
+              color: controller.tictactoe.value.board[index] == 'X'
                   ? Colors.greenAccent
                   : Colors.redAccent,
             ),

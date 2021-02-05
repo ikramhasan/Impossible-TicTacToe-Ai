@@ -37,19 +37,19 @@ class HomePage extends StatelessWidget {
             left: size.width / 2 - 300,
             height: 600,
             width: 600,
-            child: GetBuilder<TicTacToeController>(
+            child: GetX<TicTacToeController>(
                 init: TicTacToeController(),
                 builder: (controller) {
                   WidgetsBinding.instance.addPostFrameCallback((_) {
                     String winText;
-                    if (controller.winner == 'X') {
-                      winText = ' You Won!';
-                    } else if (controller.winner == 'O') {
+                    if (controller.tictactoe.value.winner == 'X') {
+                      winText = 'You Won!';
+                    } else if (controller.tictactoe.value.winner == 'O') {
                       winText = 'You Lost!';
                     } else {
-                      winText = controller.winner;
+                      winText = controller.tictactoe.value.winner;
                     }
-                    controller.winner == 'NONE'
+                    controller.tictactoe.value.winner == 'NONE'
                         ? Container()
                         : Get.dialog(
                             Center(
@@ -101,7 +101,7 @@ class HomePage extends StatelessWidget {
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                     ),
-                    itemCount: controller.board.length,
+                    itemCount: controller.tictactoe.value.board.length,
                     itemBuilder: (context, index) {
                       return Board(
                         index: index,
