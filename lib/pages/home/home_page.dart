@@ -31,7 +31,7 @@ class HomePage extends StatelessWidget {
             ),
             SizedBox(height: 60),
             Container(
-              color: Colors.black.withOpacity(0.4),
+              color: Colors.black.withOpacity(0.5),
               child: GetX<TicTacToeController>(
                   init: TicTacToeController(),
                   builder: (controller) {

@@ -14,7 +14,6 @@ dependencies:
   flutter_button: ^0.0.4
   dotfield: ^1.0.4
   google_fonts: ^1.1.2
-  glassmorphism: ^1.0.4
   get: ^3.24.0
   responsive_framework: ^0.0.14
   url_launcher: ^5.7.10

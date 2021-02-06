@@ -51,11 +51,7 @@ class Console extends StatelessWidget {
                             text: steps[index] != 0
                                 ? 'Checked ${steps[index].toString()} steps ahead and found the most optimal move.'
                                 : 'Game started! (the first move may take some time to register.)',
-                            style: GoogleFonts.inconsolata(
-                              color: steps[index] != 0
-                                  ? Colors.greenAccent
-                                  : Colors.blueAccent,
-                            ),
+                            style: GoogleFonts.inconsolata(color: Colors.green),
                           ),
                         ],
                       ),

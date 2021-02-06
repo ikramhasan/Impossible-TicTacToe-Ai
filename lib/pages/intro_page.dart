@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_button/3d/3d_button.dart';
 import 'package:get/get.dart';
-import 'package:glassmorphism/glassmorphism.dart';
 import 'package:tic_tac_toe/constants/k_text.dart';
 import 'package:tic_tac_toe/styles/k_textstyles.dart';
 
@@ -15,28 +14,12 @@ class IntroPage extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 34),
         child: Center(
-          child: GlassmorphicContainer(
+          child: Container(
             height: 500,
             width: 400,
-            border: 2,
-            blur: 2,
-            borderRadius: 8,
-            linearGradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFF0FFFF).withOpacity(0.15),
-                Color(0xFF0FFFF).withOpacity(0),
-              ],
-            ),
-            borderGradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                Color(0xFF0FFFF).withOpacity(1),
-                Color(0xFF0FFFF).withOpacity(0),
-                Color(0xFF0FFFF).withOpacity(1),
-              ],
+            decoration: BoxDecoration(
+              color: Colors.black.withOpacity(0.5),
+              border: Border.all(color: Colors.blueAccent),
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(
