@@ -52,9 +52,7 @@ An android fat application made using Flutter.
 <a href="https://github.com/Codelessly/ResponsiveFramework">
   <img alt="Built with Responsive Framework"
        src="https://raw.githubusercontent.com/Codelessly/ResponsiveFramework/master/packages/Built%20with%20Responsive%20Badge.png"/>
-</a>
-
-Flutter is a game-changing technology that will revolutionize not just development, but software itself. A big thank you to the Flutter team for building such an amazing platform 💙
+</a>  &nbsp &nbsp &nbsp
 
 <a href="https://github.com/flutter/flutter">
   <img alt="Flutter"
