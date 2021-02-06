@@ -24,7 +24,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 80),
+            SizedBox(height: 30),
             Text(
               impossible_tictactoe,
               style: headerStyle,
@@ -69,11 +69,13 @@ class HomePage extends StatelessWidget {
                   }),
             ),
             SizedBox(height: 60),
-            Container(
-              height: 100,
-              child: Console(),
+            Expanded(
+              child: Container(
+                height: 100,
+                child: Console(),
+              ),
             ),
-            SizedBox(height: 60),
+            SizedBox(height: 30),
             Align(
               alignment: Alignment.bottomRight,
               child: TextButton(
