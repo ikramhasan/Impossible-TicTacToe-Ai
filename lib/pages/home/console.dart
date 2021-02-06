@@ -9,7 +9,10 @@ class Console extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black,
+      decoration: BoxDecoration(
+        border: Border.all(color: Colors.blueAccent),
+        color: Colors.black,
+      ),
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: GetX<TicTacToeController>(
@@ -39,7 +42,7 @@ class Console extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 2),
                     child: RichText(
                       text: TextSpan(
-                        text: 'Console: ',
+                        text: '> Console: ',
                         style: GoogleFonts.inconsolata(
                           color: Colors.blueAccent,
                         ),

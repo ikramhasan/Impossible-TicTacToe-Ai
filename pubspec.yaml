@@ -16,6 +16,7 @@ dependencies:
   google_fonts: ^1.1.2
   glassmorphism: ^1.0.4
   get: ^3.24.0
+  responsive_framework: ^0.0.14
   url_launcher: ^5.7.10
 
 dev_dependencies:
