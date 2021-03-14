@@ -23,7 +23,7 @@ A tictactoe AI that is impossible to beat. Made using Dart and Flutter ❤ Both 
 
 A website built with the Flutter Responsive Framework.
 
-### [Android App](https://drive.google.com/file/d/1qSH0yCsfNrxaWfSFU3csciTOXlTQsblQ/view?usp=sharing)
+### [Android App](https://play.google.com/store/apps/details?id=com.ikramhasan.tic_tac_toe)
 
 An android fat application made using Flutter.
 
